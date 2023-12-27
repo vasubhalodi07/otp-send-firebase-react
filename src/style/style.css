@@ -1,0 +1,132 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+body {
+  background-color: slategrey;
+}
+
+.topbar {
+  background-color: rgb(38, 38, 54);
+  height: 10vh;
+  font-size: 24px;
+  letter-spacing: 1.8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.otp-container {
+  display: flex;
+  justify-content: center;
+  padding-top: 15vh;
+}
+
+.phone-container {
+  width: 400px;
+}
+
+.phone-title {
+  font-size: 20px;
+  color: white;
+  background-color: rgb(38, 38, 54);
+  text-align: center;
+  padding: 15px;
+}
+
+.phone-subcontainer {
+  background-color: white;
+  height: 120px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.extra {
+  height: 150px;
+}
+
+.phone-filed .mobile {
+  font-size: 14px;
+}
+
+.phone-filed {
+  padding-bottom: 10px;
+}
+
+.phone-filed-otp {
+  padding-bottom: 2px;
+}
+
+.phone-btn {
+  margin-top: 10px;
+}
+
+.phone-btn button {
+  border: none;
+  color: white;
+  background-color: rgb(38, 38, 54);
+  padding: 8px 20px;
+  border-radius: 3px;
+  font-size: 15px;
+}
+
+.phone-btn button:hover {
+  transition: 0.5s ease-in-out;
+  background-color: lightslategray;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  background-color: #888;
+  color: white;
+  transition: none;
+  cursor: none;
+}
+
+button:hover:disabled {
+  cursor: no-drop;
+  background-color: #888;
+}
+
+.otp-details {
+  margin-top: 5px;
+  width: 72%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.otp-details button {
+  border: none;
+  padding: 2px;
+  background-color: transparent;
+}
+
+/* User */
+.user-container {
+  color: white;
+}
+
+.user-link {
+  text-align: center;
+  color: aqua;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+#recaptcha-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  opacity: 0.4;
+}
