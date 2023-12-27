@@ -17,7 +17,7 @@ This project focuses on implementing Firebase OTP authentication using React. Th
 
 ### Frontend Setup
 
-1. Navigate to the `otp-send` directory:
+1. Navigate to the `otp-send-firebase-react` directory:
 
    ```bash
    cd otp-send
