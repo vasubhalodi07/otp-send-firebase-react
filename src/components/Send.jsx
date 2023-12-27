@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
@@ -11,6 +11,15 @@ const Send = () => {
   const dispatch = useDispatch();
   const [phone, setPhone] = useState("");
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
+  const [recaptcha, setRecaptcha] = useState(null);
+
+  useEffect(() => {
+    let recaptchaVerifier;
+    recaptchaVerifier = new RecaptchaVerifier(auth, "recaptcha", {
+      size: "invisible",
+    });
+    setRecaptcha(recaptchaVerifier);
+  }, []);
 
   const sendOTP = async () => {
     if (phone == "") {
@@ -22,18 +31,14 @@ const Send = () => {
       return;
     }
 
-    var recaptcha;
     try {
       setIsButtonDisabled(true);
-      recaptcha = new RecaptchaVerifier(auth, "recaptcha", {
-        size: "invisible",
-      });
-
       const confirmation = await signInWithPhoneNumber(
         auth,
         "+" + phone,
         recaptcha
       );
+
       toast.success("otp sended successfully");
       dispatch(addUser(confirmation));
       dispatch(addPhoneNumber(phone));
@@ -50,7 +55,6 @@ const Send = () => {
           toast.error("Something went wrong. Please try again later.");
           break;
       }
-      recaptcha = "";
       console.log(error);
     } finally {
       setIsButtonDisabled(false);
@@ -60,7 +64,7 @@ const Send = () => {
   return (
     <div>
       <div className="phone-container">
-        <div className="phone-title">otp authentication</div>
+        <div className="phone-title">OTP Authentication</div>
         <div className="phone-subcontainer">
           <div className="phone-filed">
             <PhoneInput
@@ -82,6 +86,7 @@ const Send = () => {
           </div>
         </div>
       </div>
+
       <div id="recaptcha"></div>
     </div>
   );
