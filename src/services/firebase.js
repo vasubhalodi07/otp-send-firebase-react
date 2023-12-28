@@ -2,13 +2,13 @@ import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyD00UmqXIVHl3FpRaODwUUVIBjqPVjsf0Y",
-  authDomain: "otp-2-f20f1.firebaseapp.com",
-  projectId: "otp-2-f20f1",
-  storageBucket: "otp-2-f20f1.appspot.com",
-  messagingSenderId: "642825081625",
-  appId: "1:642825081625:web:56efe35413c89f0d916b88",
-  measurementId: "G-2C3TKWNGR9",
+  apiKey: "AIzaSyCbG9FuW5m7matWNJuNW4eRNmgJSkFiY2U",
+  authDomain: "opt-3-874e2.firebaseapp.com",
+  projectId: "opt-3-874e2",
+  storageBucket: "opt-3-874e2.appspot.com",
+  messagingSenderId: "325995639942",
+  appId: "1:325995639942:web:45b5bc194e414a791fcd07",
+  measurementId: "G-G6HXLDS6MQ",
 };
 
 const app = initializeApp(firebaseConfig);

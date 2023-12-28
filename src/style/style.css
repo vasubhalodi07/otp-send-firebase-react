@@ -130,3 +130,9 @@ button:hover:disabled {
   left: 0;
   opacity: 0.4;
 }
+
+.timer {
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: 0.8px;
+}

@@ -13,6 +13,8 @@ const Send = () => {
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
   const [recaptcha, setRecaptcha] = useState(null);
 
+  const [showCaptcha, setShowCaptcha] = useState(true);
+
   useEffect(() => {
     let recaptchaVerifier;
     recaptchaVerifier = new RecaptchaVerifier(auth, "recaptcha", {
@@ -43,6 +45,7 @@ const Send = () => {
       dispatch(addUser(confirmation));
       dispatch(addPhoneNumber(phone));
       dispatch(changeStateFalse());
+      setShowCaptcha(false);
     } catch (error) {
       switch (error.code) {
         case "auth/too-many-requests":
@@ -87,7 +90,7 @@ const Send = () => {
         </div>
       </div>
 
-      <div id="recaptcha"></div>
+      {showCaptcha && <div id="recaptcha"></div>}
     </div>
   );
 };

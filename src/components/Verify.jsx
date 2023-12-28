@@ -19,6 +19,15 @@ const Verify = () => {
   const [isVerifyButtonDisabled, setIsVerifyButtonDisabled] = useState(false);
   const [otpTime, setOtpTime] = useState(40);
 
+  const [recaptcha, setRecaptcha] = useState(null);
+  useEffect(() => {
+    let recaptchaVerifier;
+    recaptchaVerifier = new RecaptchaVerifier(auth, "recaptcha", {
+      size: "invisible",
+    });
+    setRecaptcha(recaptchaVerifier);
+  }, []);
+
   useEffect(() => {
     if (otpTime > 0) {
       const intervalId = setInterval(() => {
@@ -40,10 +49,6 @@ const Verify = () => {
 
     try {
       setIsButtonDisabled(true);
-      const recaptcha = new RecaptchaVerifier(auth, "recaptcha", {
-        size: "invisible",
-      });
-
       const confirmation = await signInWithPhoneNumber(
         auth,
         "+" + phoneNumber,
@@ -132,6 +137,8 @@ const Verify = () => {
             >
               {isVerifyButtonDisabled ? "Checking..." : "Verify OTP"}
             </button>
+          </div>
+          <div className="timer">
             {otpTime > 0 && <div>{otpTime} seconds remaining</div>}
           </div>
         </div>
